@@ -1,21 +1,33 @@
+# usage
+# python devices.py <sub-key> <channels> <push-type>
+#
+# sub-key: the sub-key value
+# channels: comma delimited list of channels; no whitespace
+# push-type: apns or gcm
+#
+# example: python devices.py demo-36 foo,bar apns
+# output:  outlined list by channel, by devices with markup ready for Desk response
+# 
+# *foo*
+# * token1
+# * token2
+# * token3
+#
+# *bar*
+# * token2
+# * token5
+
 import requests
 import json
 import sys
 
-for arg in sys.argv:
-    print arg
-
 args = sys.argv
 
-sub_key = args[1]
+sub_key  = args[1]
 channels = args[2].split(",")
-gwtype = args[3]
+gwtype   = args[3]
 
-print "channels: %s" % channels
-
-# sub_key = "sub-c-35a3c43a-650a-11e4-8fde-02ee2ddab7fe"
-# channel = "54eb45beb5f1e032241c5bf3,54eb45beb5f1e032241c5bf3"
-# gwtype = 'apns'
+print ""
 
 for channel in channels:
 	url = 'http://storageweb2.us-east-1.pubnub.com:9000/admin-push/sub-key/' + sub_key + '?channel=' + channel + '&type='+ gwtype
