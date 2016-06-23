@@ -26,6 +26,7 @@ args = sys.argv
 sub_key  = args[1]
 channels = args[2].split(",")
 gwtype   = args[3]
+markup = args[4]
 
 print ""
 
@@ -35,9 +36,35 @@ for channel in channels:
 	r = requests.get(url)
 
 	print ""
-	print "*%s*" % channel
+
+	if markup:
+		print "*%s*" % channel
 
 	tokens = json.loads(r.content)
 
 	for token in tokens:
-	    print "* %s" % token
+		if markup:
+		    print "* %s" % token
+		else:
+			print "%s,%s" % (channel, token)
+
+
+# Open a file
+fo = open("foo.txt", "rw+")
+print "Name of the file: ", fo.name
+
+# Assuming file has following 5 lines
+# This is 1st line
+# This is 2nd line
+# This is 3rd line
+# This is 4th line
+# This is 5th line
+
+line = fo.readline()
+print "Read Line: %s" % (line)
+
+line = fo.readline(5)
+print "Read Line: %s" % (line)
+
+# Close opend file
+fo.close()

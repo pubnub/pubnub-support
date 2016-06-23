@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <meta charset="utf-8">
+    <META HTTP-EQUIV="Access-Control-Allow-Origin" CONTENT="http://storageweb2.us-east-1.pubnub.com">
+    <META HTTP-EQUIV="Access-Control-Request-Headers" CONTENT="x-requested-with">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="./assets/bootstrap.min.css" rel="stylesheet">
+<style>
+#stats {
+    font-size: 60px;
+    line-height: 60px;
+}
+#find-value, #find-button {
+}
+#find-value {
+}
+#out {
+    white-space:nowrap;
+}
+</style></head>
+
+
+<body data-pinterest-extension-installed="cr1.39.1"><div class="container">
+<div class="jumbotron">
+    <h2>Get Push Registration Token List by Channel</h2>
+    <p>Get a list of device registration tokens associated with a given channel.</p>
+    <div class="row">
+        <div class="col-lg-8">
+	        Sub Key
+	        <input id="sub-key" type="text" class="form-control" value="sub-c-c72be34e-d358-11e4-b585-0619f8945a4f">
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-lg-8">
+            Channel
+            <input id="lookup-val" type="text" class="form-control" placeholder="" autofocus="" value="imClient-personal-ROBERT.CHAPPELL@TKELEVATOR.NET">
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-lg-4">
+            Push Service Type
+            <select id="push-type" class="form-control">
+                <option value="apns">apns</option>
+                <option value="gcm">gcm</option>
+                <option value="mpns">mpns</option>
+            </select>
+        </div>
+    </div>
+    <div>&nbsp;<div>
+    <div>
+        <button id="find-button" type="button" class="btn btn-lg btn-primary">Search</button>
+    <div>
+</div>
+</div>
+
+<div class="container">
+	Total Registration Tokens
+    <div id="stats">0</div>
+    Registration Token List
+    <pre id="out"></pre>
+</div>
+
+<script src="http://code.jquery.com/jquery-1.11.3.min.js"></script>
+<script>(function(){
+	$("#find-button").bind("click", lookup);
+
+
+    function strong(m){return "<strong>"+m+"</strong>"}
+
+    function lookup() {
+    	console.log("lookup");
+    	var out = $('#out');
+    	out.text();
+
+    	var stats = $('#stats');
+    	var sub_key = $('#sub-key').val();
+    	var lookup_val = $('#lookup-val').val();
+    	var push_type = $('#push-type').val();
+
+    	console.log("sub_key: " + sub_key);
+
+
+        var url = "http://storageweb2.us-east-1.pubnub.com:9000/admin-push/sub-key/" 
+            + sub_key + "?channel=" + lookup_val + "&type=" + push_type
+
+		$.get(url, function(data, status) {
+		      console.log(data);
+		      var count = (data.match(/,/g) || []).length + 1;
+		      stats.text(count);
+		      console.log('count: ' + count);
+		      data = data.replace('[', '');
+		      data = data.replace(']', '');
+		      data = data.replace('"', '');
+		      data = data.replace(/"/g, '');
+		      data = data.replace(/, /g, '<br>');
+		      out.html(data);
+		},'html');
+    }
+
+
+})();</script>
+</div></div></div></div><span id="buffer-extension-hover-button" style="display: none;position: absolute;z-index: 8675309;width: 100px;height: 25px;background-image: url(chrome-extension://noojglkidnpfjbincgijbaiedldjfbhh/data/shared/img/buffer-hover-icon@2x.png);background-size: 100px 25px;opacity: 0.9;cursor: pointer;">
+</span></body></html>
