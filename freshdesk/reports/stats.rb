@@ -41,7 +41,7 @@ $query.store(2, {"name" => "Platinum Support", "query" => "(support_plan:'Platin
 # Gold Support
 $query.store(3, {"name" => "Gold Support", "query" => "(support_plan:'Gold')"})
 # Paid Account, Free Support
-$query.store(4, {"name" => "Paid Plan, Free Support", "query" => "((account_plan:'Standard' OR account_plan:'Pro Tx' OR account_plan:'Pro' OR account_plan:'Go' OR account_plan:'Global' OR account_plan:'Global' OR account_plan:'Heroku') AND (support_plan:'Free' OR support_plan:'Free%2b%2b'))"})
+$query.store(4, {"name" => "Paid Plan, Free Support", "query" => "((account_plan:'Standard' OR account_plan:'Pro Tx' OR account_plan:'Pro' OR account_plan:'Go' OR account_plan:'Global' OR account_plan:'Heroku') AND (support_plan:'Free' OR support_plan:'Free%2b%2b'))"})
 # Paid Account, Free Support
 $query.store(5, {"name" => "Free Plan, Free Support", "query" => "((account_plan:'Free') AND (support_plan:'Free' OR support_plan:'Free%2b%2b'))"})
 
@@ -115,7 +115,8 @@ def get_tickets (query_category)
     tickets = tickets + results
   end
 
-  response = invoke_request(url)
+  # why was i doing this again?
+  # response = invoke_request(url)
   return tickets
 end
 
