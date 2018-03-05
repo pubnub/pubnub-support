@@ -149,3 +149,8 @@ get_contacts().each do |contact|
   puts "Contact: #{contact['name']}"
   update_contact(contact)
 end
+
+puts
+puts "++++++++++++++++++++"
+puts "Contacts updated      : #{contacts_updated}"
+puts "Activation emails sent: #{emails_sent}"

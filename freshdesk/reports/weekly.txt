@@ -1,0 +1,67 @@
+_Total Tickets: 11_
+h3. Transics !Weekly Report^vip.png!
+-----
+h6. 2018-03-02 |  | Global | Platinum | High | 2 - Research | Andrew Johnson | Jasdeep Jaitla
+*[4324|https://support.pubnub.com/helpdesk/tickets/4324] - An unexpected error occurred on a receive*
+* Customer 
+
+h3. Transics
+-----
+h6. 2018-03-02 |  | Global | Platinum | High | 3 - Engineering | Andrew Johnson | Jasdeep Jaitla
+*[4316|https://support.pubnub.com/helpdesk/tickets/4316] - A questionmark in the channelname results in an error on the publish().*
+* Customer 
+
+h3. VAST COMMUNICATIONS LLC
+-----
+h6. 2018-03-01 |  | Global | Platinum | Medium | 2 - Research | Rob Sampson | Geremy Cohen
+*[4306|https://support.pubnub.com/helpdesk/tickets/4306] - HTTP ERROR on data send*
+* Customer 
+
+h3. Carie
+-----
+h6. 2018-02-28 |  | Pro | Gold | Medium | 1 - Front Lines | Rob Sampson | Geremy Cohen
+*[4257|https://support.pubnub.com/helpdesk/tickets/4257] - Default timeout for presence is like 5 minutes which is ridiculous*
+* Customer 
+
+h3. company?
+-----
+h6. 2018-02-27 |  | Pro Tx | Gold | Urgent | 2 - Research |  | csa?
+*[4232|https://support.pubnub.com/helpdesk/tickets/4232] - ios | add push token to channel behavior*
+* Customer 
+
+h3. company? !Weekly Report^vip.png!
+-----
+h6. 2018-02-26 |  | Free | Free | Urgent | 3 - Engineering |  | csa?
+*[4196|https://support.pubnub.com/helpdesk/tickets/4196] - remote host ps.pndsn.com not found*
+* Customer 
+
+h3. Docusign, Inc !Weekly Report^vip.png!
+-----
+h6. 2018-02-26 |  | Pro Tx | Platinum | Urgent | 3 - Engineering | Rob Sampson | csa?
+*[4195|https://support.pubnub.com/helpdesk/tickets/4195] - New error this morning*
+* Customer 
+
+h3. Transics
+-----
+h6. 2018-02-26 |  | Global | Platinum | Urgent | 3 - Engineering | Andrew Johnson | Jasdeep Jaitla
+*[4193|https://support.pubnub.com/helpdesk/tickets/4193] - remote host ps.pndsn.com not found on 26/feb/2018 between 13:28 and 13:38 UTC*
+* Customer 
+
+h3. Pinnacle Sports
+-----
+h6. 2018-02-26 |  | Pro | Platinum | Urgent | 3 - Engineering | Rob Sampson | Jasdeep Jaitla
+*[4191|https://support.pubnub.com/helpdesk/tickets/4191] - PubNub errors*
+* Customer 
+
+h3. Vivint !Weekly Report^vip.png!
+-----
+h6. 2018-02-23 |  | Global | Platinum | High | 1 - Front Lines | Zeshon Memon | csa?
+*[4165|https://support.pubnub.com/helpdesk/tickets/4165] - Payment Advice Note from 02/23/2018*
+* Customer 
+
+h3. Athenahealth !Weekly Report^vip.png!
+-----
+h6. 2018-02-23 |  | Pro Tx | Platinum | High | 2 - Research | Rob Sampson | csa?
+*[4142|https://support.pubnub.com/helpdesk/tickets/4142] - how do the messages in the server-inbound-x channel are going to be processed?*
+* Customer 
+
