@@ -77,7 +77,7 @@ $options = {}
 # $options[:log] = false
 
 OptionParser.new do |opts|
-  opts.banner = "Usage: vips.rb [options]"
+  opts.banner = "Usage: support_okr.rb [options]"
 
   opts.on("-s", "--start [DATE]", "Start Date, example -s 2018-05-22") do |opt|
     $options[:start] = opt
@@ -206,8 +206,8 @@ def main()
 
   $categories.each do |key, value|
     puts
-    puts "#{key}) #{value['name']}"
-    puts "-------------------------------"
+    puts "*#{key}) #{value['name']}*"
+    puts "----"
 
 
     total_time = 0

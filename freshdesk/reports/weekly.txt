@@ -1,7 +1,91 @@
-_Total Tickets: 11_
+_Total Tickets: 16_
+h3. Curb-ridecharge
+-----
+h6. 2018-03-09 |  | Standard | Free++ | Medium | 1 - Front Lines | Rob Sampson | Jasdeep Jaitla
+*[4498|https://support.pubnub.com/helpdesk/tickets/4498] - Getting Time out  on connecting to Android client*
+* Customer 
+
+h3. Insteon !Weekly Report^vip.png!
+-----
+h6. 2018-03-08 |  | Global | Platinum | High | 1 - Front Lines | Roberto Nhuch | Bhavana Srinivas
+*[4480|https://support.pubnub.com/helpdesk/tickets/4480] - service outage? Publish/Subscribe*
+* Customer 
+
+h3. Atlassian !Weekly Report^vip.png!
+-----
+h6. 2018-03-08 |  | Pro Tx | Platinum | High | 1 - Front Lines | Roberto Nhuch | Girish Dusane
+*[4477|https://support.pubnub.com/helpdesk/tickets/4477] - Chat with Julien Michel Hoarau on Thu, 8th Mar 2018*
+* Customer 
+
+h3. 17 Media !Weekly Report^vip.png!
+-----
+h6. 2018-03-08 |  | Pro Tx | Platinum | High | 2 - Research | Rob Sampson | Jasdeep Jaitla
+*[4474|https://support.pubnub.com/helpdesk/tickets/4474] - suffered high latency to origin `ps.pndsn.com`*
+* Customer 
+
+h3. Logmein, Inc.
+-----
+h6. 2018-03-08 |  | Global | Gold | Medium | 1 - Front Lines | Rob Sampson | Jasdeep Jaitla
+*[4470|https://support.pubnub.com/helpdesk/tickets/4470] - Change key ownership*
+* Customer 
+
+h3. Twiage
+-----
+h6. 2018-03-07 |  | Pro | Gold | Medium | 1 - Front Lines | Rob Sampson | Jasdeep Jaitla
+*[4450|https://support.pubnub.com/helpdesk/tickets/4450] - Rerun last invoice new card*
+* Customer 
+
+h3. Atlassian !Weekly Report^vip.png!
+-----
+h6. 2018-03-07 |  | Pro Tx | Platinum | Medium | 1 - Front Lines | Roberto Nhuch | Girish Dusane
+*[4428|https://support.pubnub.com/helpdesk/tickets/4428] - Wants to pass timetoken back when calling subscribe*
+* Customer 
+
+h3. company?
+-----
+h6. 2018-03-06 |  | Free | Free | Urgent | 2 - Research |  | csa?
+*[4416|https://support.pubnub.com/helpdesk/tickets/4416] - Receiving messages in US, but not EU*
+* Customer 
+
+h3. Tusla Teknoloji Hizmetleri
+-----
+h6. 2018-03-06 |  | Standard | Free | Urgent | 3 - Engineering | Andrew Johnson | csa?
+*[4412|https://support.pubnub.com/helpdesk/tickets/4412] - Missing published messages!*
+* Customer 
+
+h3. The Climate Corporation !Weekly Report^vip.png!
+-----
+h6. 2018-03-06 |  | Pro Tx | Gold | High | 2 - Research | Rob Sampson | csa?
+*[4409|https://support.pubnub.com/helpdesk/tickets/4409] - Fwd: Any PubNub Changes?*
+* Customer 
+
+h3. Kinestral
+-----
+h6. 2018-03-06 |  | Standard | Free++ | Medium | 1 - Front Lines | Andrew Johnson | Girish Dusane
+*[4404|https://support.pubnub.com/helpdesk/tickets/4404] - Invoice INV00087204*
+* Customer 
+
+h3. 17 Media !Weekly Report^vip.png!
+-----
+h6. 2018-03-06 |  | Pro Tx | Platinum | High | 2 - Research | Rob Sampson | Jasdeep Jaitla
+*[4394|https://support.pubnub.com/helpdesk/tickets/4394] - Re: [#4391] [High Latency] Got high latency when curl 'ps.pndsn.com'*
+* Customer 
+
+h3. COLORFY UG !Weekly Report^vip.png!
+-----
+h6. 2018-03-06 |  | Pro Tx | Free | Medium | 1 - Front Lines | Rob Sampson | Jasdeep Jaitla
+*[4392|https://support.pubnub.com/helpdesk/tickets/4392] - Re: Please set the following Sub-Keys to PRODUCTION / Custom*
+* Customer 
+
+h3. Reuters Market Light
+-----
+h6. 2018-03-06 |  | Standard | Gold | Medium | 1 - Front Lines | Andrew Johnson | Jasdeep Jaitla
+*[4383|https://support.pubnub.com/helpdesk/tickets/4383] - Billing issue*
+* Customer 
+
 h3. Transics !Weekly Report^vip.png!
 -----
-h6. 2018-03-02 |  | Global | Platinum | High | 2 - Research | Andrew Johnson | Jasdeep Jaitla
+h6. 2018-03-02 |  | Global | Platinum | Medium | 2 - Research | Andrew Johnson | Jasdeep Jaitla
 *[4324|https://support.pubnub.com/helpdesk/tickets/4324] - An unexpected error occurred on a receive*
 * Customer 
 
@@ -9,59 +93,5 @@ h3. Transics
 -----
 h6. 2018-03-02 |  | Global | Platinum | High | 3 - Engineering | Andrew Johnson | Jasdeep Jaitla
 *[4316|https://support.pubnub.com/helpdesk/tickets/4316] - A questionmark in the channelname results in an error on the publish().*
-* Customer 
-
-h3. VAST COMMUNICATIONS LLC
------
-h6. 2018-03-01 |  | Global | Platinum | Medium | 2 - Research | Rob Sampson | Geremy Cohen
-*[4306|https://support.pubnub.com/helpdesk/tickets/4306] - HTTP ERROR on data send*
-* Customer 
-
-h3. Carie
------
-h6. 2018-02-28 |  | Pro | Gold | Medium | 1 - Front Lines | Rob Sampson | Geremy Cohen
-*[4257|https://support.pubnub.com/helpdesk/tickets/4257] - Default timeout for presence is like 5 minutes which is ridiculous*
-* Customer 
-
-h3. company?
------
-h6. 2018-02-27 |  | Pro Tx | Gold | Urgent | 2 - Research |  | csa?
-*[4232|https://support.pubnub.com/helpdesk/tickets/4232] - ios | add push token to channel behavior*
-* Customer 
-
-h3. company? !Weekly Report^vip.png!
------
-h6. 2018-02-26 |  | Free | Free | Urgent | 3 - Engineering |  | csa?
-*[4196|https://support.pubnub.com/helpdesk/tickets/4196] - remote host ps.pndsn.com not found*
-* Customer 
-
-h3. Docusign, Inc !Weekly Report^vip.png!
------
-h6. 2018-02-26 |  | Pro Tx | Platinum | Urgent | 3 - Engineering | Rob Sampson | csa?
-*[4195|https://support.pubnub.com/helpdesk/tickets/4195] - New error this morning*
-* Customer 
-
-h3. Transics
------
-h6. 2018-02-26 |  | Global | Platinum | Urgent | 3 - Engineering | Andrew Johnson | Jasdeep Jaitla
-*[4193|https://support.pubnub.com/helpdesk/tickets/4193] - remote host ps.pndsn.com not found on 26/feb/2018 between 13:28 and 13:38 UTC*
-* Customer 
-
-h3. Pinnacle Sports
------
-h6. 2018-02-26 |  | Pro | Platinum | Urgent | 3 - Engineering | Rob Sampson | Jasdeep Jaitla
-*[4191|https://support.pubnub.com/helpdesk/tickets/4191] - PubNub errors*
-* Customer 
-
-h3. Vivint !Weekly Report^vip.png!
------
-h6. 2018-02-23 |  | Global | Platinum | High | 1 - Front Lines | Zeshon Memon | csa?
-*[4165|https://support.pubnub.com/helpdesk/tickets/4165] - Payment Advice Note from 02/23/2018*
-* Customer 
-
-h3. Athenahealth !Weekly Report^vip.png!
------
-h6. 2018-02-23 |  | Pro Tx | Platinum | High | 2 - Research | Rob Sampson | csa?
-*[4142|https://support.pubnub.com/helpdesk/tickets/4142] - how do the messages in the server-inbound-x channel are going to be processed?*
 * Customer 
 
