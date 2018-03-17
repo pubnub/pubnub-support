@@ -1,0 +1,37 @@
+_Total Tickets: 6_
+h3. Atlassian !Weekly Report^vip.png!
+-----
+h6. 2018-03-13 |  | Pro Tx | Platinum | High | 1 - Front Lines | Roberto Nhuch | Girish Dusane
+*[4578|https://support.pubnub.com/helpdesk/tickets/4578] - Atlassian - Dealing with reconnects in Javascript and when to fetch history*
+* Customer 
+
+h3. Insteon !Weekly Report^vip.png!
+-----
+h6. 2018-03-12 |  | Global | Platinum | High | 1 - Front Lines | Roberto Nhuch | Bhavana Srinivas
+*[4549|https://support.pubnub.com/helpdesk/tickets/4549] - Update SSL certificate for custom origin*
+* Customer 
+
+h3. Things Remembered
+-----
+h6. 2018-03-12 |  | Global | Platinum | High | 2 - Research | Rob Sampson | Jasdeep Jaitla
+*[4542|https://support.pubnub.com/helpdesk/tickets/4542] - Connection Issues*
+* Customer 
+
+h3. Vitac, LLC (formerly Caption Colorado)
+-----
+h6. 2018-03-12 |  | Pro | Gold | Medium | 2 - Research | Rob Sampson | Jasdeep Jaitla
+*[4539|https://support.pubnub.com/helpdesk/tickets/4539] - Pubnub question*
+* Customer 
+
+h3. Atlassian !Weekly Report^vip.png!
+-----
+h6. 2018-03-12 |  | Pro Tx | Platinum | High | 3 - Engineering | Roberto Nhuch | Girish Dusane
+*[4526|https://support.pubnub.com/helpdesk/tickets/4526] - Increased Latency and errors in grants API*
+* Customer 
+
+h3. Curb-ridecharge
+-----
+h6. 2018-03-09 |  | Standard | Free++ | Medium | 2 - Research | Rob Sampson | Jasdeep Jaitla
+*[4498|https://support.pubnub.com/helpdesk/tickets/4498] - Getting Time out  on connecting to Android client*
+* Customer 
+

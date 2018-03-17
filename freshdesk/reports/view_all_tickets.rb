@@ -29,10 +29,10 @@ $options = {}
 OptionParser.new do |opts|
   opts.banner = "Usage: view_all_tickets.rb [options]"
 
-  opts.on("-n", "--company [String]", "Company Name, example -n Lorem Ipsum") do |opt|
-    $options[:cname] = opt
-    $company_name = opt
-  end
+  # opts.on("-n", "--company [String]", "Company Name, example -n Lorem Ipsum") do |opt|
+  #   $options[:cname] = opt
+  #   $company_name = opt
+  # end
 
   opts.on("-i", "--company [Integer]", "Company ID, example -i 4567890123") do |opt|
     $options[:cid] = opt
@@ -43,16 +43,16 @@ OptionParser.new do |opts|
     $options[:log] = opt
   end
 
-  opts.on("-o", "--output [String]", "Output file, example -o weekly.txt") do |opt|
-    $options[:output] = opt
-  end
+  # opts.on("-o", "--output [String]", "Output file, example -o weekly.txt") do |opt|
+  #   $options[:output] = opt
+  # end
 end.parse!
 
 puts
 puts "OPTIONS"
-puts "company name  : #{$options[:cname]}"
+# puts "company name  : #{$options[:cname]}"
 puts "company id  : #{$options[:cid]}"
-puts "output file : #{$options[:output]}"
+# puts "output file : #{$options[:output]}"
 puts "logging     : #{$options[:log]}"
 
 if (!$options[:output].nil? && !$options[:output].empty?)
@@ -131,16 +131,34 @@ end
 
 def get_contacts ()
   query = "(company_id:#{$company_id})"
-  url = "https://pubnub.freshdesk.com/api/v2/search/contacts?query=\"#{query}\""
+  contacts = []
+  more = true
+  pg = 1
+  total = 0
 
-  if ($options[:log])
-    puts "contacts search url: #{url}"
+  while more do
+    url = "https://pubnub.freshdesk.com/api/v2/search/contacts?query=\"#{query}\"&page=#{pg}"
+
+    if ($options[:log])
+      puts "contacts search url: #{url}"
+    end
+
+    response = invoke_request(url)
+    results = response["results"]
+    count = results.length
+
+    if ($options[:log])
+      puts "page results count: #{count}"
+    end
+
+    more = (count == 30)
+    pg = pg + 1
+    contacts = contacts + results
+    total = total + count
   end
 
-  response = invoke_request(url)
-  total = response["total"]
-  puts "_Total Contacts for #{$company_id}: #{total}_"
-  return response["results"]
+  puts "Total Contacts for #{$company_id}: #{total}"
+  return contacts
 end
 
 
@@ -152,5 +170,5 @@ end
 
 puts
 puts "++++++++++++++++++++"
-puts "Contacts updated      : #{contacts_updated}"
-puts "Activation emails sent: #{emails_sent}"
+puts "Contacts updated      : #{$contacts_updated}"
+puts "Activation emails sent: #{$emails_sent}"

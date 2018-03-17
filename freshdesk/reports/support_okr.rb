@@ -91,7 +91,7 @@ OptionParser.new do |opts|
     $options[:log] = opt
   end
 
-  opts.on("-o", "--output [String]", "Output file, example -o weekly.txt") do |opt|
+  opts.on("-o", "--output [String]", "Output file, example -o sokr.txt") do |opt|
     $options[:output] = opt
   end
 end.parse!
