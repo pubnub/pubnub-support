@@ -34,16 +34,16 @@ statuses.store(14, "Email Processing")
 
 $query_unresolved = "(status:2 OR status:3 OR status:7 OR status:8 OR status:10 OR status:11 OR status:12)"
 $query = Hash.new
-# VIP
-$query.store(1, {"name" => "VIP", "query" => "(cf_vip:true)"})
-# Platinum Support
-$query.store(2, {"name" => "Platinum Support", "query" => "(support_plan:'Platinum')"})
-# Gold Support
-$query.store(3, {"name" => "Gold Support", "query" => "(support_plan:'Gold')"})
-# Paid Account, Free Support
-$query.store(4, {"name" => "Paid Plan, Free Support", "query" => "((account_plan:'Standard' OR account_plan:'Pro Tx' OR account_plan:'Pro' OR account_plan:'Go' OR account_plan:'Global' OR account_plan:'Global' OR account_plan:'Heroku') AND (support_plan:'Free' OR support_plan:'Free%2b%2b'))"})
-# Paid Account, Free Support
-$query.store(5, {"name" => "Free Plan, Free Support", "query" => "((account_plan:'Free') AND (support_plan:'Free' OR support_plan:'Free%2b%2b'))"})
+# # VIP
+# $query.store(1, {"name" => "VIP", "query" => "(cf_vip:true)"})
+# # Platinum Support
+# $query.store(2, {"name" => "Platinum Support", "query" => "(support_plan:'Platinum')"})
+# # Gold Support
+# $query.store(3, {"name" => "Gold Support", "query" => "(support_plan:'Gold')"})
+# # Paid Account, Free Support
+# $query.store(4, {"name" => "Paid Plan, Free Support", "query" => "((account_plan:'Standard' OR account_plan:'Pro Tx' OR account_plan:'Pro' OR account_plan:'Go' OR account_plan:'Global' OR account_plan:'Global' OR account_plan:'Heroku') AND (support_plan:'Free' OR support_plan:'Free%2b%2b'))"})
+# # Paid Account, Free Support
+# $query.store(5, {"name" => "Free Plan, Free Support", "query" => "((account_plan:'Free') AND (support_plan:'Free' OR support_plan:'Free%2b%2b'))"})
 
 
 # contains all unresolved tickets returned by the query
@@ -66,7 +66,7 @@ $categories.store(2, {"name" => "Platinum Support", "list" => $plat})
 $categories.store(3, {"name" => "Gold Support", "list" => $gold})
 $categories.store(4, {"name" => "Paid Plan, Free Support", "list" => $paid})
 $categories.store(5, {"name" => "Free Plan, Free Support", "list" => $free})
-$categories.store(6, {"name" => "New", "list" => $new})
+# $categories.store(6, {"name" => "New", "list" => $new})
 
 ###########################################################################
 #                         COMMAND LINE ARGUMENTS
@@ -129,8 +129,8 @@ def categorize_tickets(tickets)
 
     if (is_new_ticket(ticket['created_at']))
       # puts "new ticket: #{ticket_id}"
-      $new.push(ticket_id)
       ticket['_new'] = true
+      $new.push(ticket_id)
     end
 
     # VIP customer tickets
@@ -143,22 +143,25 @@ def categorize_tickets(tickets)
     if (custom_fields['support_plan'] == 'Platinum')
       # puts "Platinum ticket: #{ticket_id}"
       $plat.push(ticket_id)
+    end
 
     # Gold support tickets
-    elsif (custom_fields['support_plan'] == 'Gold')
+    if (custom_fields['support_plan'] == 'Gold')
       # puts "Gold ticket: #{ticket_id}"
       $gold.push(ticket_id)
+    end
 
-    # Free account, Free support tickets
-    elsif (custom_fields['account_plan'].nil? || custom_fields['account_plan'].empty? || custom_fields['account_plan'] == 'Free')
-      # puts "Free/Free ticket: #{ticket['id']}"
-      $free.push(ticket_id)
-
-    # Paid account, Free support tickets
-    else
+    if ((!custom_fields['account_plan'].nil? && !custom_fields['account_plan'].empty? && custom_fields['account_plan'] != 'Free') && (custom_fields['support_plan'] == 'Free' || custom_fields['support_plan'] == 'Free++'))
       # puts "Paid/Free ticket: #{ticket_id}"
       $paid.push(ticket_id)
     end
+
+    # Free account, Free support tickets
+    if ((custom_fields['account_plan'].nil? || custom_fields['account_plan'].empty? || custom_fields['account_plan'] == 'Free') && (custom_fields['support_plan'] == 'Free' || custom_fields['support_plan'] == 'Free++'))
+      # puts "Free/Free ticket: #{ticket['id']}"
+      $free.push(ticket_id)
+    end
+    # Paid account, Free support tickets
   end # tickets.each
 end
 
@@ -203,28 +206,34 @@ end
 def main()
   get_unresolved_tickets()
   $current_time = Time.now.to_i
+  puts
+  puts "||Segment||New||L5||L4||L3||L2||L1||Total||Avg Open"
 
   $categories.each do |key, value|
-    puts
-    puts "*#{key}) #{value['name']}*"
-    puts "----"
-
+    # puts "*#{key}) #{value['name']}*"
+    # puts "----"
+    print "|*#{value['name']}*"
 
     total_time = 0
     total_tickets = 0
     total_new = 0
+    total_esc5 = 0
+    total_esc4 = 0
     total_esc3 = 0
     total_esc2 = 0
+    total_esc1 = 0
 
     value['list'].each do |ticket_id|
       ticket = $all_tickets[ticket_id]
       time_open = get_time_open(ticket['created_at'])
       total_time = total_time + time_open
+      total_esc5 = total_esc5 + (ticket['custom_fields']['escalation'] == '5 - Board' ? 1 : 0)
+      total_esc4 = total_esc4 + (ticket['custom_fields']['escalation'] == '4 - Executive' ? 1 : 0)
       total_esc3 = total_esc3 + (ticket['custom_fields']['escalation'] == '3 - Engineering' ? 1 : 0)
       total_esc2 = total_esc2 + (ticket['custom_fields']['escalation'] == '2 - Research' ? 1 : 0)
-
-      if (key != 6) # not the New tickets category
-        total_new = total_new + (ticket['_new'] ? 1 : 0)
+      total_esc1 = total_esc1 + (ticket['custom_fields']['escalation'] == '1 - Front Lines' ? 1 : 0)
+      if (ticket['_new'])
+        total_new = total_new + 1
       end
     end # end tickets (value['list'].each)
 
@@ -236,23 +245,28 @@ def main()
     hours_left = (avg_open_hours % 24).round(0)
 
     if (total_tickets > 0)
-      puts "Average Open Duration: #{avg_open_days}d #{hours_left}h"
-
-      puts "Total Tickets:         #{total_tickets}"
-
-      if (key != 6) # not the New tickets category
-        puts "  New this week:       #{total_new}"
-      end
-
-      puts "  Engineering:         #{total_esc3}"
-      puts "  Research:            #{total_esc2}"
-
-      # puts "Average Hours Open:    #{avg_open_hours}"
-      # puts "Average Minutes Open:  #{avg_open_minutes}"
-      # puts "Average Seconds Open:  #{avg_open_seconds}"
-    else # total_tickets > 0
-      puts "No tickets found for this category."
+      puts "|#{total_new}|#{total_esc5}|#{total_esc4}|#{total_esc3}|#{total_esc2}|#{total_esc1}|#{total_tickets}|#{avg_open_days}d #{hours_left}h"
     end # total_tickets > 0
+
+    # if (total_tickets > 0)
+    #   puts "Average Open Duration: #{avg_open_days}d #{hours_left}h"
+    #
+    #   puts "Total Tickets:         #{total_tickets}"
+    #
+    #   if (key != 6) # not the New tickets category
+    #     puts "  New this week:       #{total_new}"
+    #   end
+    #
+    #   puts "  Engineering:         #{total_esc3}"
+    #   puts "  Research:            #{total_esc2}"
+    #   puts "  Front Lines:         #{total_esc1}"
+    #
+    #   # puts "Average Hours Open:    #{avg_open_hours}"
+    #   # puts "Average Minutes Open:  #{avg_open_minutes}"
+    #   # puts "Average Seconds Open:  #{avg_open_seconds}"
+    # else # total_tickets > 0
+    #   puts "No tickets found for this category."
+    # end # total_tickets > 0
   end # $categories.each
 end
 
