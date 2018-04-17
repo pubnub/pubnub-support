@@ -6,10 +6,11 @@
   configured so that each event has a separeate path (/active, /join, etc.)
   or one path to handle them all and you parse the action in your handler.
   But it is highly recommended that you have at least two web hook paths:
-    - one for active/inactive
-    - one for join/leave/timeout/statechange
-  since active/inactive are multipart form (non-JSON) and the other
-   are application/json format (see code below for clarity).
+    - one for active and inactive
+    - one for join, leave, timeout and statechange
+  ... since active and inactive are multipart/form-data (non-JSON) and the
+   others are application/json (see code below for clarity).
+   
    Questions? Contact PubNub Support: https://support.pubnub.com
 */
 
