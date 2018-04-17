@@ -167,8 +167,19 @@ def main()
   $segments.each do |key, value|
     # puts "*#{key}) #{value['name']}*"
     # puts "----"
+    seg_tot = value['list'][0] + value['list'][1]
+    seg0_pct = 0
+    seg1_pct = 0
 
-    puts "|*#{value['name']}*|#{value['list'][0]}|#{value['list'][1]}"
+    if (seg_tot > 0)
+      seg0_pct = (value['list'][0].fdiv(seg_tot) * 100).round()
+      seg1_pct = (value['list'][1].fdiv(seg_tot) * 100).round()
+    end
+
+    seg0_csat = seg_tot == 0 ? "0" : "#{seg0_pct}% (#{value['list'][0]})"
+    seg1_csat = seg_tot == 0 ? "0" : "#{seg1_pct}% (#{value['list'][1]})"
+
+    puts "|*#{value['name']}*|#{seg0_csat}|#{seg1_csat}"
   end # $categories.each
 end
 
