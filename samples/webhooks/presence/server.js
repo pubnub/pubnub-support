@@ -52,31 +52,33 @@ app.post("/timeout", (request, response) => {
 // statechange Web Hook URI = https://myserver.com:3000/statechange
 app.post("/statechange", (request, response) => {
     console.log("STATE CHANGE - request.body: ", request.body);
-    // do something but do not delay the 200 response or PubNub will try calling
-    //   again after 5s of no response up to 3 times before it quits trying
     response.status(200).end();
 });
 
 // active Web Hook URI = https://myserver.com:3000/active
-app.post("/active", (req, res) => {
-  parseMultiPart("ACTIVE", req, res);
+app.post("/active", (request, response) => {
+  parseMultiPart("ACTIVE", request, response);
 });
 
 // inactive Web Hook URI = https://myserver.com:3000/inactive
-app.post("/inactive", (req, res) => {
-  parseMultiPart("INACTIVE", req, res);
+app.post("/inactive", (request, response) => {
+  parseMultiPart("INACTIVE", request, response);
 });
 
-function parseMultiPart(event, req, res) {
+function parseMultiPart(event, request, response) {
     console.log(event);
+    // do something but do not delay the 200 response or PubNub will try calling
+    //   again after 5s of no response up to 3 times before it quits trying
 
-    var busboy = new Busboy({ headers: req.headers });
+    var busboy = new Busboy({ headers: request.headers });
 
     busboy.on('file', function(fieldname, file, filename, encoding, mimetype) {
       console.log('File [' + fieldname + ']: filename: ' + filename + ', encoding: ' + encoding + ', mimetype: ' + mimetype);
+
       file.on('data', function(data) {
         console.log('File [' + fieldname + '] got ' + data.length + ' bytes');
       });
+
       file.on('end', function() {
         console.log('File [' + fieldname + '] Finished');
       });
@@ -88,9 +90,10 @@ function parseMultiPart(event, req, res) {
 
     busboy.on('finish', function() {
       console.log('Done parsing form!');
-      res.writeHead(303, { Connection: 'close', Location: '/' });
-      res.end();
+      response.writeHead(303, { Connection: 'close', Location: '/' });
+      response.status(200).end();
     });
 
-    req.pipe(busboy);
+    // this call invokes busboy events above
+    request.pipe(busboy);
 }
