@@ -94,14 +94,18 @@ def update_contact (contact)
 
       # set to bogus email
       email_data = JSON.generate({"email" => "bogus@example.com"})
-
       puts "setting to bogus email"
       site = RestClient::Resource.new(url, "dHgVM1emGoTyr8zHmVNH")
       response = site.put(email_data, :content_type=>'application/json')
 
+      # must sleep so that the two email updates don't trigger 
+      # two activation emails to the customer - perhaps it could be .5 seconds or less?
+      sleep 1
+
       # set back to original email
       puts "setting back to origina email: #{email}"
       email_data = JSON.generate({"email" => email})
+      # email_data = JSON.generate({"email" => "cvconover+john@gmail.com"})
       site = RestClient::Resource.new(url, "dHgVM1emGoTyr8zHmVNH")
       response = site.put(email_data, :content_type=>'application/json')
 
