@@ -2,7 +2,7 @@
   This code is provided "as-is" with no implied warranty/support/etc. Use at
   your own risk and customize to your requirements as needed.
 
-  Below, each event has a sepaare path but PubNub Presence Web Hooks can be
+  Below, each event has a separate path but PubNub Presence Web Hooks can be
   configured so that each event has a separeate path (/active, /join, etc.)
   or one path to handle them all and you parse the action in your handler.
   But it is highly recommended that you have at least two web hook paths:
