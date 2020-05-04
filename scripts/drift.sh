@@ -10,7 +10,7 @@ echo "system time: $syst"
 # systt=$(echo "($syst*10000000)" | bc)
 # echo "$systt"
 
-result=$(echo "($pntt-$syst)"*1000 | bc)
+result=$(echo "($pntt-$syst)" | bc)
 
 # $ echo "$(($a + 1))"
 echo "your clock is off by $result seconds"
